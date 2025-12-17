@@ -2,6 +2,7 @@ package com.app.model;
 
 import java.time.LocalDateTime;
 
+//Attempt pojo class
 public class Attempt {
 	
 	public int id;
