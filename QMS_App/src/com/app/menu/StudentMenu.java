@@ -1,0 +1,51 @@
+package com.app.menu;
+
+import java.util.Scanner;
+
+enum EStudentMenu {
+	Viewquizes , Takequiz , Viewscores , Logout
+}
+
+public class StudentMenu {	
+	
+	public static void studentMenuWithEnum (Scanner sc){
+		EStudentMenu[] arr = EStudentMenu.values();
+		EStudentMenu enumchoice;
+		
+		do {
+			System.out.println("----------------- Student Menu ------------------");
+
+			for (EStudentMenu ele : arr) 
+				System.out.println(ele.ordinal()+1 + "." + ele.name());
+			System.out.println("Enter your choice :");
+			
+			int choice = sc.nextInt();
+			enumchoice = arr[choice - 1];
+			
+			switch (enumchoice) {
+			
+			case Viewquizes:
+				System.out.println("You have selected view quiz case.");
+				break;
+				
+			case Takequiz:
+				System.out.println("You have selected take quiz case.");
+				break;
+				
+			case Viewscores:
+				System.out.println("You have selected view score case.");
+				break;
+				
+			case Logout:
+				System.out.println("Thank you for visiting application.");
+				break;
+				
+			default:
+				System.out.println("Wrong choice.");
+				break;
+			}
+		}while(enumchoice != EStudentMenu.Logout);
+		
+		
+	}
+}
