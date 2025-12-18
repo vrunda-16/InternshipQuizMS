@@ -14,10 +14,20 @@ public class UserDao implements AutoCloseable{
 		connection = DbUtil.getConnection();
 	}
 	
-	public String selectAdmin(String email , String password) {
-		
-		String name = null;
-		
+	public String selectAdmin(String email , String password) throws SQLException {
+		String name = null ;
+		String sql = "SELECT name FROM users WHERE email = ? AND password_hash = ? AND role = ?";
+
+		try(PreparedStatement selectStatement = connection.prepareStatement(sql)){
+			selectStatement.setString(1, email);
+			selectStatement.setString(2, password);
+			selectStatement.setString(3, "ADMIN");
+			ResultSet rs = selectStatement.executeQuery();
+			
+			while(rs.next()) {
+					name = rs.getString(1);
+				} 
+		}
 		return name;
 	}
 	
