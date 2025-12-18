@@ -6,6 +6,7 @@ import java.util.Scanner;
 import com.app.dao.UserDao;
 import com.app.menu.AdminMenu;
 import com.app.menu.StudentMenu;
+import com.app.model.User;
 
 public class UserService {
 	
@@ -31,7 +32,24 @@ public class UserService {
 	}
 	
 	public void studentRegister(Scanner sc) {
+		User user=new User();
 		
+		System.out.println("Enter Name :");
+		user.setName(sc.next());
+		
+		System.out.println("Enter Email :");
+		user.setEmail(sc.next());
+		
+		System.out.println("Enter Password :");
+		user.setPassword(sc.next());
+		
+		try(UserDao userDao = new UserDao()){
+			userDao.insertStudent(user);
+			System.out.println("Studet Registered Successfully...");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void studentLogin(Scanner sc) {

@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.app.model.User;
 import com.app.util.DbUtil;
 
 public class UserDao implements AutoCloseable{
@@ -31,7 +32,18 @@ public class UserDao implements AutoCloseable{
 		return name;
 	}
 	
-	public void insertStudent(String name ,String email , String password) {
+	public void insertStudent(User user) throws SQLException {
+		
+		String sql="insert into users(name , email , password_hash , role) values(?,?,?,?)";
+		try(PreparedStatement insertStatement = connection.prepareStatement(sql)){
+			insertStatement.setString(1, user.getName());
+			insertStatement.setString(2, user.getEmail());
+			insertStatement.setString(3, user.getPassword());
+			insertStatement.setString(4, "Student");
+			insertStatement.executeUpdate();
+			
+			
+		}
 		
 	}
 	
