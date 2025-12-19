@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+2025/12/17-16:00:50.647 59b0 Creating DB D:\T.YDKTE\Sunbeam\Internship-Project\My-Work\InternshipQuizMS\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Site Characteristics Database since it was missing.
+2025/12/17-16:00:50.657 59b0 Reusing MANIFEST D:\T.YDKTE\Sunbeam\Internship-Project\My-Work\InternshipQuizMS\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Site Characteristics Database/MANIFEST-000001
+=======
 2025/12/18-11:38:49.910 2564 Reusing MANIFEST D:\SUNBEAM_JAVA_PROJECT\My_Work\InternshipQuizMS\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Site Characteristics Database/MANIFEST-000001
 2025/12/18-11:38:49.912 2564 Recovering log #3
 2025/12/18-11:38:49.912 2564 Reusing old log D:\SUNBEAM_JAVA_PROJECT\My_Work\InternshipQuizMS\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Site Characteristics Database/000003.log 
+>>>>>>> e4fa2edb5d644f38f0471ebb023f0ef46b4dcb89

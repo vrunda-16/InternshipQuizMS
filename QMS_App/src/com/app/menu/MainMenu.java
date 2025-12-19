@@ -5,7 +5,7 @@ import java.util.Scanner;
 import com.app.service.UserService;
 
 enum EMainMenu {
-	AdminLogin , StudentRegister , StudentLogin , Exit
+	Admin_Login , Student_Register , Student_Login , Exit
 }
 
 public class MainMenu {	
@@ -29,15 +29,15 @@ public class MainMenu {
 			
 			switch (enumchoice) {
 			
-			case AdminLogin:
+			case Admin_Login:
 				userService.adminLogin(sc);
 				break;
 				
-			case StudentRegister:
+			case Student_Register:
 				userService.studentRegister(sc);
 				break;
 				
-			case StudentLogin:
+			case Student_Login:
 				userService.studentLogin(sc);
 				break;
 				

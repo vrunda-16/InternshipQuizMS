@@ -2,17 +2,20 @@ package com.app.menu;
 
 import java.util.Scanner;
 
+import com.app.service.QuizService;
+
 enum EAdminMenu {
-	Createquiz , ListQuizzes ,ViewResults , DeleteQuiz , Logout 
+	Create_Quiz , List_Quizzes ,View_Results , Delete_Quiz , Logout 
 }
 
 public class AdminMenu {	
 	
-	public static void adminMenuWithEnum (Scanner sc){
+	public static void adminMenu (Scanner sc , int adminId){
 		EAdminMenu[] arr = EAdminMenu.values();
 		EAdminMenu enumchoice;
 		
 		do {
+			QuizService quizService = new QuizService();
 			
 			System.out.println("----------------- Admin Menu ------------------");
 			for ( EAdminMenu ele : arr) 
@@ -24,19 +27,19 @@ public class AdminMenu {
 			
 			switch (enumchoice) {
 			
-			case Createquiz:
-				System.out.println("You have selected create quiz case.");
+			case Create_Quiz:
+				quizService.createQuiz(sc, adminId);
 				break;
 				
-			case ListQuizzes:
+			case List_Quizzes:
 				System.out.println("You have selected list quizzes case.");
 				break;
 				
-			case ViewResults:
+			case View_Results:
 				System.out.println("You have selected view result case.");
 				break;
 				
-			case DeleteQuiz:
+			case Delete_Quiz:
 				System.out.println("You have selected delete quiz case.");
 				break;
 				

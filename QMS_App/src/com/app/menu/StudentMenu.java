@@ -3,12 +3,12 @@ package com.app.menu;
 import java.util.Scanner;
 
 enum EStudentMenu {
-	Viewquizes , Takequiz , Viewscores , Logout
+	View_Quizes , Take_Quiz , View_Scores , Logout
 }
 
 public class StudentMenu {	
 	
-	public static void studentMenuWithEnum (Scanner sc){
+	public static void studentMenu (Scanner sc , int studentId){
 		EStudentMenu[] arr = EStudentMenu.values();
 		EStudentMenu enumchoice;
 		
@@ -24,15 +24,15 @@ public class StudentMenu {
 			
 			switch (enumchoice) {
 			
-			case Viewquizes:
+			case View_Quizes:
 				System.out.println("You have selected view quiz case.");
 				break;
 				
-			case Takequiz:
+			case Take_Quiz:
 				System.out.println("You have selected take quiz case.");
 				break;
 				
-			case Viewscores:
+			case View_Scores:
 				System.out.println("You have selected view score case.");
 				break;
 				
