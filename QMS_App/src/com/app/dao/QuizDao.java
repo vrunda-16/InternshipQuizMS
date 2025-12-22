@@ -4,7 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
+import com.app.model.Quiz;
 import com.app.util.DbUtil;
 
 public class QuizDao implements AutoCloseable {
@@ -29,6 +32,22 @@ public class QuizDao implements AutoCloseable {
 			}
 		}
 		return quizId;
+	}
+	
+	public List<Quiz> viewQuiz() throws SQLException{
+		
+		List<Quiz> quizList = new ArrayList<>();
+		String sql = "SELECT title FROM quizzes";
+		try(PreparedStatement selectStatement = connection.prepareStatement(sql)){
+			ResultSet rs = selectStatement.executeQuery();
+			while(rs.next()) {
+				Quiz quiz = new Quiz();
+				quiz.setTitle(rs.getString(1));
+				quizList.add(quiz);
+			}
+		}
+		return quizList;
+			
 	}
 
 	@Override

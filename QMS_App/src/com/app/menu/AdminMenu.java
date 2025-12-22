@@ -32,7 +32,7 @@ public class AdminMenu {
 				break;
 				
 			case List_Quizzes:
-				System.out.println("You have selected list quizzes case.");
+				quizService.listQuiz();
 				break;
 				
 			case View_Results:

@@ -7,6 +7,7 @@ import java.util.Scanner;
 import com.app.dao.QuestionDao;
 import com.app.dao.QuizDao;
 import com.app.model.Question;
+import com.app.model.Quiz;
 import com.app.util.QuestionFileParser;
 
 public class QuizService {
@@ -35,6 +36,24 @@ public class QuizService {
 			e.printStackTrace();
 		}
 		
-		
 	}
+		public void listQuiz() {
+			try(QuizDao quizDao = new QuizDao()){
+				
+				List<Quiz> quizList = quizDao.viewQuiz();
+				if(quizList.isEmpty() == false) {
+					System.out.println("--------- Available quizzes ------");
+					for(Quiz quiz : quizList) {
+						System.out.println("Quiz Title : " + quiz.getTitle());
+					}
+				} else
+					System.out.println("No any quizes available");
+				
+			}catch (Exception e) {
+				
+				e.printStackTrace();
+			}
+		}
+		
+	
 }
