@@ -2,7 +2,10 @@ package com.app.model;
 
 import java.time.LocalDateTime;
 
+<<<<<<< HEAD
 //Attempt pojo class
+=======
+>>>>>>> 910c8ec (Attempt model added)
 public class Attempt {
 	
 	public int id;
