@@ -1,8 +1,16 @@
 package com.app.dao;
 
 import java.sql.Connection;
+<<<<<<< HEAD
 import java.sql.SQLException;
 
+=======
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.app.model.User;
+>>>>>>> 3add7a3f2db59df9a28091ceddfd766c11491826
 import com.app.util.DbUtil;
 
 public class UserDao implements AutoCloseable{
@@ -12,6 +20,7 @@ public class UserDao implements AutoCloseable{
 		connection = DbUtil.getConnection();
 	}
 	
+<<<<<<< HEAD
 	public String selectAdmin(String email , String password) {
 		String name = null ;
 		
@@ -28,6 +37,55 @@ public class UserDao implements AutoCloseable{
 		
 		
 		return name;
+=======
+	public int selectAdmin(String email , String password) throws SQLException {
+		String sql = "SELECT * FROM users WHERE email = ? AND password_hash = ? AND role = ?";
+
+		try(PreparedStatement selectStatement = connection.prepareStatement(sql)){
+			selectStatement.setString(1, email);
+			selectStatement.setString(2, password);
+			selectStatement.setString(3, "ADMIN");
+			ResultSet rs = selectStatement.executeQuery();
+			
+			if(rs.next()) {
+				int adminId = rs.getInt(1);
+				return adminId;
+			}
+		}
+		return 0;
+	}
+	
+	public void insertStudent(User user) throws SQLException {
+		
+		String sql="insert into users(name , email , password_hash , role) values(?,?,?,?)";
+		try(PreparedStatement insertStatement = connection.prepareStatement(sql)){
+			insertStatement.setString(1, user.getName());
+			insertStatement.setString(2, user.getEmail());
+			insertStatement.setString(3, user.getPassword());
+			insertStatement.setString(4, "Student");
+			insertStatement.executeUpdate();
+			
+			
+		}
+		
+	}
+	
+	public int selectStudent(String email , String password) throws SQLException{
+		String sql = "SELECT * FROM users WHERE email = ? AND password_hash = ? AND role = ?";
+
+		try(PreparedStatement selectStatement = connection.prepareStatement(sql)){
+			selectStatement.setString(1, email);
+			selectStatement.setString(2, password);
+			selectStatement.setString(3, "STUDENT");
+			ResultSet rs = selectStatement.executeQuery();
+			
+			if(rs.next()) {
+				int studentId = rs.getInt(1);
+				return studentId;
+			}
+		}
+		return 0;
+>>>>>>> 3add7a3f2db59df9a28091ceddfd766c11491826
 	}
 
 	@Override
