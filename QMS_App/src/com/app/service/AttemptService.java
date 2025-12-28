@@ -8,6 +8,7 @@ import com.app.dao.AttemptDao;
 import com.app.model.Quiz;
 import com.app.model.User;
 import com.app.model.Question;
+import com.app.dao.*;
 
 public class AttemptService {
 	//Display quizzes to student
@@ -79,5 +80,19 @@ public class AttemptService {
 		}
 	}
 	
+	//Display score to admin
+	public void showScoreToAdmin(Scanner sc) {
+		List<Object[]> arr=new ArrayList<>();
+		try(AttemptDao attemptDao = new AttemptDao()){
+			arr=attemptDao.displayScoreToAdmin();
+			
+			for(Object[] obj:arr) {
+				System.out.println("QuizName :"+obj[0]+" "+"StudentId :"+" "+obj[1]+" "+"Score :"+obj[2]);
+			}
+		}catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 }

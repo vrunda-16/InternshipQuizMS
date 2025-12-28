@@ -86,6 +86,23 @@ public class AttemptDao implements AutoCloseable{
 		return obj;
 	}
 	
+	//Display score to admin
+	public List<Object[]> displayScoreToAdmin() throws SQLException{
+		List<Object[]> obj=new ArrayList();
+		String sql="select qz.title,a.student_id,a.final_score from quizzes qz inner join quiz_attempts a on qz.quiz_id=a.quiz_id";
+		try(PreparedStatement selectsPreparedStatement = connection.prepareStatement(sql)){
+			ResultSet rs = selectsPreparedStatement.executeQuery();
+			
+			while(rs.next()) {
+				String title = rs.getString(1);
+				int stud_id=rs.getInt(2);
+				int score=rs.getInt(3);
+				obj.add(new Object[] {title,stud_id,score});
+			}
+		}
+		return obj;
+	}
+	
 	@Override
 	public void close() throws Exception {
 		// TODO Auto-generated method stub

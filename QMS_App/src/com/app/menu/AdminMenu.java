@@ -1,6 +1,8 @@
 package com.app.menu;
 
 import java.util.Scanner;
+
+import com.app.service.AttemptService;
 import com.app.service.QuizService;
 
 enum EAdminMenu {
@@ -8,7 +10,6 @@ enum EAdminMenu {
 }
 
 public class AdminMenu {	
-	
 
 	public static void adminMenu (Scanner sc , int adminId){
 
@@ -16,6 +17,7 @@ public class AdminMenu {
 		EAdminMenu enumchoice;
 		
 		do {
+			AttemptService attemptService = new AttemptService();
 
 			QuizService quizService = new QuizService();
 			
@@ -38,7 +40,7 @@ public class AdminMenu {
 				break;
 				
 			case View_Results:
-				System.out.println("You have selected view result case.");
+				attemptService.showScoreToAdmin(sc);
 				break;
 				
 			case Delete_Quiz:
