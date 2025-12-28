@@ -64,7 +64,8 @@ public class QuizDao implements AutoCloseable {
 		return quizList;
 			
 	}
-
+	
+	
 	@Override
 	public void close() throws Exception {
 		if(connection != null) {

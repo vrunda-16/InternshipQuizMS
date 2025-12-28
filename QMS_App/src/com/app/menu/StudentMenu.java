@@ -37,11 +37,11 @@ public class StudentMenu {
 				break;
 				
 			case Take_Quiz:
-				System.out.println("You have selected take quiz case.");
+				attemptService.attemptQuiz(sc, student);
 				break;
 				
 			case View_Scores:
-				System.out.println("You have selected view score case.");
+				attemptService.showScoreToStudent(sc, student);
 				break;
 				
 			case Logout:
