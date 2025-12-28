@@ -5,11 +5,9 @@ import java.util.Scanner;
 import com.app.service.UserService;
 
 enum EMainMenu {
-<<<<<<< HEAD
-	AdminLogin , StudentRegister , StudentLogin , Exit
-=======
+
 	Admin_Login , Student_Register , Student_Login , Exit
->>>>>>> 3add7a3f2db59df9a28091ceddfd766c11491826
+
 }
 
 public class MainMenu {	
@@ -27,23 +25,12 @@ public class MainMenu {
 			for (EMainMenu ele : arr) 
 				System.out.println(ele.ordinal()+1 + "." + ele.name());
 			
-			System.out.println("Enter your choice :");
+			System.out.print("Enter your choice :");
 			int choice = sc.nextInt();
 			enumchoice = arr[choice-1];
 			
 			switch (enumchoice) {
 			
-<<<<<<< HEAD
-			case AdminLogin:
-				userService.adminLogin(sc);
-				break;
-				
-			case StudentRegister:
-				userService.studentRegister(sc);
-				break;
-				
-			case StudentLogin:
-=======
 			case Admin_Login:
 				userService.adminLogin(sc);
 				break;
@@ -53,7 +40,6 @@ public class MainMenu {
 				break;
 				
 			case Student_Login:
->>>>>>> 3add7a3f2db59df9a28091ceddfd766c11491826
 				userService.studentLogin(sc);
 				break;
 				

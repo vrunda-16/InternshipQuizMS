@@ -1,8 +1,5 @@
 package com.app.dao;
 
-<<<<<<< HEAD
-public class QuizDao {
-=======
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -36,16 +33,31 @@ public class QuizDao implements AutoCloseable {
 		}
 		return quizId;
 	}
-	
+	public int removeQuiz(int quizId) throws SQLException {
+		int result = 0;
+		String sql = "delete q from questions q inner join quizzes qz on q.quiz_id = qz.quiz_id where q.quiz_id = ?";
+		try(PreparedStatement removeStatement = connection.prepareStatement(sql)){
+			removeStatement.setInt(1, quizId);
+			removeStatement.executeUpdate();
+			String sql1 = "delete from quizzes where quiz_id = ?";
+			try(PreparedStatement removeStatement2 = connection.prepareStatement(sql1 , java.sql.Statement.RETURN_GENERATED_KEYS)){
+				removeStatement2.setInt(1, quizId);
+				result = removeStatement2.executeUpdate();
+			}
+		}
+		return result;
+	}
 	public List<Quiz> viewQuiz() throws SQLException{
 		
 		List<Quiz> quizList = new ArrayList<>();
-		String sql = "SELECT title FROM quizzes";
+		String sql = "SELECT * FROM quizzes";
 		try(PreparedStatement selectStatement = connection.prepareStatement(sql)){
 			ResultSet rs = selectStatement.executeQuery();
 			while(rs.next()) {
 				Quiz quiz = new Quiz();
-				quiz.setTitle(rs.getString(1));
+				quiz.setId(rs.getInt(1));
+				quiz.setTitle(rs.getString(2));
+				quiz.setCreaterId(rs.getInt(3));
 				quizList.add(quiz);
 			}
 		}
@@ -61,6 +73,5 @@ public class QuizDao implements AutoCloseable {
 		}
 		
 	}
->>>>>>> 3add7a3f2db59df9a28091ceddfd766c11491826
 
 }

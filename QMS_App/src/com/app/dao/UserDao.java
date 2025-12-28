@@ -1,16 +1,16 @@
 package com.app.dao;
 
 import java.sql.Connection;
-<<<<<<< HEAD
+
 import java.sql.SQLException;
 
-=======
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.app.model.User;
->>>>>>> 3add7a3f2db59df9a28091ceddfd766c11491826
+
 import com.app.util.DbUtil;
 
 public class UserDao implements AutoCloseable{
@@ -20,24 +20,6 @@ public class UserDao implements AutoCloseable{
 		connection = DbUtil.getConnection();
 	}
 	
-<<<<<<< HEAD
-	public String selectAdmin(String email , String password) {
-		String name = null ;
-		
-		
-		return name;
-	}
-	
-	public void insertStudent(String name ,String email , String password) {
-		
-	}
-	
-	public String selectStudent(String email , String password) {
-		String name = null ;
-		
-		
-		return name;
-=======
 	public int selectAdmin(String email , String password) throws SQLException {
 		String sql = "SELECT * FROM users WHERE email = ? AND password_hash = ? AND role = ?";
 
@@ -70,7 +52,9 @@ public class UserDao implements AutoCloseable{
 		
 	}
 	
-	public int selectStudent(String email , String password) throws SQLException{
+	public User selectStudent(String email , String password) throws SQLException{
+		User student = new User();
+		
 		String sql = "SELECT * FROM users WHERE email = ? AND password_hash = ? AND role = ?";
 
 		try(PreparedStatement selectStatement = connection.prepareStatement(sql)){
@@ -80,12 +64,16 @@ public class UserDao implements AutoCloseable{
 			ResultSet rs = selectStatement.executeQuery();
 			
 			if(rs.next()) {
-				int studentId = rs.getInt(1);
-				return studentId;
+				student.setId(rs.getInt(1));
+				student.setName(rs.getString(2));
+				student.setEmail(rs.getString(3));
+				student.setPassword(rs.getString(4));
+				student.setRole(rs.getString(5));
+				return student;
 			}
 		}
-		return 0;
->>>>>>> 3add7a3f2db59df9a28091ceddfd766c11491826
+		return null;
+
 	}
 
 	@Override

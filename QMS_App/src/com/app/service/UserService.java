@@ -1,11 +1,6 @@
 package com.app.service;
 
-<<<<<<< HEAD
 import java.util.Scanner;
-
-public class UserService {
-	public void adminLogin(Scanner sc) {
-=======
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -27,7 +22,7 @@ public class UserService {
 				System.out.println("Login Failed ! You may have entered wrong details");
 				
 			} else {
-				System.out.println("Login successful! Welcome Admin");
+				System.out.println("Login successfull ! Welcome Admin");
 				AdminMenu.adminMenu(sc , adminId);
 			}
 			
@@ -35,58 +30,44 @@ public class UserService {
 			
 			e.printStackTrace();
 		} 
->>>>>>> 3add7a3f2db59df9a28091ceddfd766c11491826
-		
-	}
+	}	
 	
 	public void studentRegister(Scanner sc) {
-<<<<<<< HEAD
-		
-	}
-	
-	public void studentLogin(Scanner sc) {
-		
-=======
-		User user=new User();
-		
-		System.out.println("Enter Name :");
+		User user = new User();
+		System.out.print("Enter name :");
 		user.setName(sc.next());
-		
-		System.out.println("Enter Email :");
+		System.out.print("Enter email :");
 		user.setEmail(sc.next());
-		
-		System.out.println("Enter Password :");
+		System.out.print("Enter password :");
 		user.setPassword(sc.next());
-		
 		try(UserDao userDao = new UserDao()){
 			userDao.insertStudent(user);
-			System.out.println("Studet Registered Successfully...");
-			
+			System.out.println("Student registered successfully.");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void studentLogin(Scanner sc) {
+		User student = null;
 		System.out.print("Enter email : ");
 		String email = sc.next();
 		System.out.print("Enter password : ");
 		String password = sc.next();
 		try(UserDao userDao = new UserDao()) {
-			int studentId = userDao.selectStudent(email, password);
-			if(studentId == 0) {
+			student = userDao.selectStudent(email, password);
+			if(student == null) {
 				System.out.println("Login Failed ! You may have entered wrong details");
 				
 			} else {
-				System.out.println("Login successful! Welcome student...");
-				StudentMenu.studentMenu(sc , studentId);
+				System.out.println("Login successfull ! Welcome student...");
+				StudentMenu.studentMenu(sc , student);
 			}
 			
 		} catch (Exception e) {
 			
 			e.printStackTrace();
 		} 
-	
->>>>>>> 3add7a3f2db59df9a28091ceddfd766c11491826
+
 	}
 }

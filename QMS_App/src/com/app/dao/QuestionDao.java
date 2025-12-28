@@ -1,10 +1,5 @@
 package com.app.dao;
 
-<<<<<<< HEAD
-public class QuestionDao {
-
-}
-=======
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -45,4 +40,4 @@ public class QuestionDao implements AutoCloseable {
 	}
 	
 }
->>>>>>> 3add7a3f2db59df9a28091ceddfd766c11491826
+

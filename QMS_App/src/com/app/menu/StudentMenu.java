@@ -2,49 +2,38 @@ package com.app.menu;
 
 import java.util.Scanner;
 
+import com.app.model.User;
+import com.app.service.AttemptService;
+
 enum EStudentMenu {
-<<<<<<< HEAD
-	Viewquizes , Takequiz , Viewscores , Logout
-=======
+
 	View_Quizes , Take_Quiz , View_Scores , Logout
->>>>>>> 3add7a3f2db59df9a28091ceddfd766c11491826
 }
 
 public class StudentMenu {	
 	
-<<<<<<< HEAD
-	public static void studentMenuWithEnum (Scanner sc){
-=======
-	public static void studentMenu (Scanner sc , int studentId){
->>>>>>> 3add7a3f2db59df9a28091ceddfd766c11491826
+
+	public static void studentMenu (Scanner sc , User student){
+
 		EStudentMenu[] arr = EStudentMenu.values();
 		EStudentMenu enumchoice;
 		
 		do {
+			AttemptService attemptService = new AttemptService();
+			
 			System.out.println("----------------- Student Menu ------------------");
 
 			for (EStudentMenu ele : arr) 
 				System.out.println(ele.ordinal()+1 + "." + ele.name());
-			System.out.println("Enter your choice :");
+			System.out.print("Enter your choice :");
 			
 			int choice = sc.nextInt();
 			enumchoice = arr[choice - 1];
 			
 			switch (enumchoice) {
 			
-<<<<<<< HEAD
-			case Viewquizes:
-				System.out.println("You have selected view quiz case.");
-				break;
-				
-			case Takequiz:
-				System.out.println("You have selected take quiz case.");
-				break;
-				
-			case Viewscores:
-=======
 			case View_Quizes:
-				System.out.println("You have selected view quiz case.");
+				attemptService.viewQuiz(student);
 				break;
 				
 			case Take_Quiz:
@@ -52,7 +41,6 @@ public class StudentMenu {
 				break;
 				
 			case View_Scores:
->>>>>>> 3add7a3f2db59df9a28091ceddfd766c11491826
 				System.out.println("You have selected view score case.");
 				break;
 				
