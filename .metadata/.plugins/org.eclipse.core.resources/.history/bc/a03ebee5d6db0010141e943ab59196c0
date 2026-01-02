@@ -1,0 +1,24 @@
+package com.app.dao;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import com.app.util.DbUtil;
+
+public class UserDao implements AutoCloseable{
+	Connection connection = null;
+	
+	public UserDao() throws SQLException {
+		connection = DbUtil.getConnection();
+	}
+
+	@Override
+	public void close() throws Exception {
+		if(connection != null) {
+			connection.close();
+			connection = null;
+		}
+		
+	}
+
+}

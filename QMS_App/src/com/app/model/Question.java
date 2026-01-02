@@ -25,6 +25,19 @@ public class Question {
 		this.d = d;
 		this.correct = correct;
 	}
+<<<<<<< HEAD
+	
+	public Question(int id ,String text, String a, String b, String c, String d, char correct) {
+		super();
+		this.text = text;
+		this.a = a;
+		this.b = b;
+		this.c = c;
+		this.d = d;
+		this.correct = correct;
+	}
+=======
+>>>>>>> 1009411d1dce36e7efd2c786425725e8d4979031
 
 	public int getId() {
 		return id;
