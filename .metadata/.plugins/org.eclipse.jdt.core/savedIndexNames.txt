@@ -1,3 +1,7 @@
 INDEX VERSION 1.134+D:\T.YDKTE\Sunbeam\Internship-Project\My-Work\InternshipQuizMS\.metadata\.plugins\org.eclipse.jdt.core
 1865797976.index
+<<<<<<< HEAD
 3010496387.index
+=======
+2972433902.index
+>>>>>>> 1009411d1dce36e7efd2c786425725e8d4979031

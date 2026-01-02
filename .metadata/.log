@@ -397,6 +397,9 @@ org.eclipse.core.runtime.CoreException: Cannot determine URI for '/ /User.java'.
 !SUBENTRY 1 org.eclipse.core.filebuffers 4 0 2025-12-17 11:41:27.787
 !MESSAGE Cannot determine URI for '/ /User.java'.
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1009411d1dce36e7efd2c786425725e8d4979031
 !SESSION 2025-12-17 14:19:41.289 -----------------------------------------------
 eclipse.buildId=4.36.0.202506052058
 java.version=21.0.7
@@ -816,6 +819,7 @@ java.util.concurrent.TimeoutException
 	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:115)
 	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
 	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+<<<<<<< HEAD
 =======
 
 !ENTRY org.eclipse.jdt.core 4 4 2025-12-18 10:29:37.989
@@ -5168,3 +5172,5 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.e4.ui.workbench 2 0 2025-12-24 20:42:19.442
 !MESSAGE Removing PartDescriptorImpl with the "org.springframework.tooling.ls.eclipse.gotosymbol.view.SpringSymbolsView" id and the "Spring Symbols" label.It points to the non available "bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" class. Bundle might have been uninstalled
+=======
+>>>>>>> 1009411d1dce36e7efd2c786425725e8d4979031
